@@ -7,5 +7,10 @@ include_directories(.)
 
 add_executable(g2d
     main.cpp
-    miniwin.cpp
-    miniwin.h)
+        lib/miniwin.cpp
+        lib/miniwin.h
+        game/escenario/Fondo.cpp
+        game/escenario/Fondo.h
+        game/jugador/skin/Player_1.cpp
+        game/jugador/skin/Player_1.h
+)
