@@ -7,11 +7,15 @@
 
 using namespace miniwin;
 
-Fondo::Fondo(int escalado) : escalado(escalado) {
-    anchoPantalla = 450 * escalado;
-    altoPantalla = 300 * escalado;
+Fondo::Fondo() : escalado(5) {
+    anchoPantalla = 200 * escalado;
+    altoPantalla = 150 * escalado;
 }
 
 void Fondo::redimensionar() {
     vredimensiona(anchoPantalla, altoPantalla);
+}
+
+void Fondo::dibujar() {
+    player.dibujar();
 }

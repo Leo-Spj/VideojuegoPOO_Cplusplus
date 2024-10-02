@@ -7,7 +7,10 @@
 
 using namespace miniwin;
 
-Player_1::Player_1(int escalado, bool pintarBorde) : escalado(escalado), pintarBorde(pintarBorde) {}
+Player_1::Player_1() {}
+
+const int escalado = 15;
+const bool pintarBorde = false;
 
 void Player_1::colores(const std::string& color) {
     if (color == "c_1") {

@@ -5,15 +5,19 @@
 #ifndef FONDO_H
 #define FONDO_H
 
+#include "game/jugador/skin/Player_1.h"
+
 class Fondo {
 public:
-    Fondo(int escalado);
+    Fondo();
     void redimensionar();
+    void dibujar();
 
 private:
     int anchoPantalla;
     int altoPantalla;
     int escalado;
+    Player_1 player;
 };
 
 #endif // FONDO_H

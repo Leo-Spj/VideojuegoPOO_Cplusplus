@@ -10,7 +10,7 @@
 
 class Player_1 {
 public:
-    Player_1(int escalado, bool pintarBorde);
+    Player_1();
     void dibujar();
 
 private:
@@ -18,8 +18,7 @@ private:
     void dibujaCuadrado(int a, int b, const std::string& colorRelleno);
     void dibujaFila(int fila, const std::vector<std::string>& colores);
 
-    int escalado;
-    bool pintarBorde;
+
 };
 
 #endif // PLAYER_1_H
