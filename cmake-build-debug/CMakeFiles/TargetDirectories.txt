@@ -1,3 +1,3 @@
-C:/Users/Leo/Desktop/miniwin/g2d/cmake-build-debug/CMakeFiles/g2d.dir
-C:/Users/Leo/Desktop/miniwin/g2d/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Leo/Desktop/miniwin/g2d/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Leo/Downloads/g2d/cmake-build-debug/CMakeFiles/g2d.dir
+C:/Users/Leo/Downloads/g2d/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Leo/Downloads/g2d/cmake-build-debug/CMakeFiles/rebuild_cache.dir

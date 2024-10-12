@@ -6,8 +6,17 @@ using namespace miniwin;
 int main() {
     Fondo fondo;
     fondo.redimensionar();
-    fondo.dibujar();
 
-    refresca();
+    while (true) {
+
+        borra();
+
+        fondo.dibujar();
+
+        refresca();
+
+        espera(30);
+    }
+
     return 0;
 }
