@@ -7,6 +7,8 @@ int main() {
     Fondo fondo;
     fondo.redimensionar();
 
+
+
     while (true) {
         borra();
         fondo.movimientoJugador();
