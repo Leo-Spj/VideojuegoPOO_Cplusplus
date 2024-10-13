@@ -11,7 +11,7 @@ class Fondo {
 public:
     Fondo();
     void redimensionar();
-    void dibujar();
+    void movimientoJugador();
 
 private:
     int anchoPantalla;

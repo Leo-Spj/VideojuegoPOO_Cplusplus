@@ -11,11 +11,11 @@ int main() {
 
         borra();
 
-        fondo.dibujar();
+        fondo.movimientoJugador();
 
         refresca();
 
-        espera(20); // 50 fps
+        espera(10);
     }
 
     return 0;
