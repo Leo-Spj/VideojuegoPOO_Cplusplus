@@ -1,15 +1,14 @@
 # ninja log v6
-23	448	7504920552388206	CMakeFiles/g2d.dir/main.cpp.obj	a8e12f1b0301d109
-449	592	7504920556643818	g2d.exe	de9b29a909cf284d
-26	739	7504872803002432	CMakeFiles/g2d.dir/game/jugador/skin/ColorFlyweight.cpp.obj	ae99d9c665835641
-17	526	7504923385645087	build.ninja	564779c74a89b57a
-126	3961	7504632169849283	CMakeFiles/g2d.dir/lib/miniwin.cpp.obj	aad04dd31015e55a
-30	2014	7504920391508236	CMakeFiles/g2d.dir/game/escenario/Fondo.cpp.obj	f16966e2405dae42
-26	896	7504876491866887	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	aaf80f01b18839e1
-14	363	7504923385645087	build.ninja	f4e95d19f1178e1e
 32	712	7504923386774318	CMakeFiles/g2d.dir/main.cpp.obj	a8e12f1b0301d109
-51	867	7504923386976201	CMakeFiles/g2d.dir/game/jugador/skin/ColorFlyweight.cpp.obj	ae99d9c665835641
-46	1192	7504923386914908	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	aaf80f01b18839e1
-41	2153	7504923386868542	CMakeFiles/g2d.dir/game/escenario/Fondo.cpp.obj	f16966e2405dae42
-37	2426	7504923386827342	CMakeFiles/g2d.dir/lib/miniwin.cpp.obj	aad04dd31015e55a
 2426	2572	7504923410716381	g2d.exe	de9b29a909cf284d
+51	867	7504923386976201	CMakeFiles/g2d.dir/game/jugador/skin/ColorFlyweight.cpp.obj	ae99d9c665835641
+14	363	7504928211602934	build.ninja	f4e95d19f1178e1e
+37	2426	7504923386827342	CMakeFiles/g2d.dir/lib/miniwin.cpp.obj	aad04dd31015e55a
+41	2153	7504923386868542	CMakeFiles/g2d.dir/game/escenario/Fondo.cpp.obj	f16966e2405dae42
+46	1192	7504923386914908	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	aaf80f01b18839e1
+18	798	7504928226142818	CMakeFiles/g2d.dir/main.cpp.obj	a8e12f1b0301d109
+42	995	7504928226379315	CMakeFiles/g2d.dir/game/jugador/skin/ColorFlyweight.cpp.obj	ae99d9c665835641
+36	1427	7504928226318790	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	aaf80f01b18839e1
+31	2387	7504928226265102	CMakeFiles/g2d.dir/game/escenario/Fondo.cpp.obj	f16966e2405dae42
+25	2685	7504928226213679	CMakeFiles/g2d.dir/lib/miniwin.cpp.obj	aad04dd31015e55a
+2686	2912	7504928252822956	g2d.exe	de9b29a909cf284d

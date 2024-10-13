@@ -10,11 +10,8 @@ int main() {
     while (true) {
 
         borra();
-
         fondo.movimientoJugador();
-
         refresca();
-
         espera(10);
     }
 
