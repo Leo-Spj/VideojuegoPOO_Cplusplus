@@ -5,8 +5,10 @@
 #include "Fondo.h"
 #include "../../lib/miniwin.h"
 #include <windows.h>
+#include "../enemigos/EnemigoNiv1/EnemigoNiv1.h"
 
 using namespace miniwin;
+
 
 Fondo::Fondo() : escalado(5) {
     anchoPantalla = 200 * escalado;
@@ -16,14 +18,22 @@ Fondo::Fondo() : escalado(5) {
     // Centrando al jugador en la pantalla
     int bajarImagen =  13;
     player.mover((anchoPantalla / (2 * player.getEscalado())) - (player.getColumnaMayor()/2) , (altoPantalla / (2 * player.getEscalado())) + (player.getFilaMayor()/2) + bajarImagen);
+
+    // Añadir enemigos
+    enemigos.push_back(new EnemigoNiv1(10, 10, escalado));
+    enemigos.push_back(new EnemigoNiv1(50, 50, escalado));
+}
+
+Fondo::~Fondo() {
+    for (auto enemigo : enemigos) {
+        delete enemigo;
+    }
 }
 
 void Fondo::redimensionar() {
     vredimensiona(anchoPantalla, altoPantalla);
 }
 
-
-// no se usa la libreria miniwin para el movimiento dado que no puse lograr movimientos diagonales
 void Fondo::movimientoJugador() {
     bool izquierda = GetAsyncKeyState(VK_LEFT) & 0x8000;
     bool derecha = GetAsyncKeyState(VK_RIGHT) & 0x8000;
@@ -37,8 +47,13 @@ void Fondo::movimientoJugador() {
     if (arriba) dy -= 1;
     if (abajo) dy += 1;
 
-
     player.mover(dx, dy);
     player.dibujar();
 }
 
+void Fondo::actualizarEnemigos() {
+    for (auto enemigo : enemigos) {
+        enemigo->mover();
+        enemigo->dibujar();
+    }
+}

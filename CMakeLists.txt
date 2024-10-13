@@ -15,4 +15,8 @@ add_executable(g2d
         game/jugador/skin/Player_1.h
         game/jugador/skin/ColorFlyweight.cpp
         game/jugador/skin/ColorFlyweight.h
+        game/enemigos/Enemigo.cpp
+        game/enemigos/Enemigo.h
+        game/enemigos/EnemigoNiv1/EnemigoNiv1.cpp
+        game/enemigos/EnemigoNiv1/EnemigoNiv1.h
 )

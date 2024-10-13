@@ -8,11 +8,11 @@ int main() {
     fondo.redimensionar();
 
     while (true) {
-
         borra();
         fondo.movimientoJugador();
+        fondo.actualizarEnemigos();
         refresca();
-        espera(10);
+        espera(15);
     }
 
     return 0;
