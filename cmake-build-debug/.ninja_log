@@ -1,12 +1,12 @@
 # ninja log v6
-11	571	7496338473132946	CMakeFiles/g2d.dir/main.cpp.obj	724488b9c4a36027
-789	927	7496338480912156	g2d.exe	908c2fbec49e4f6
-17	526	7504631968455871	build.ninja	564779c74a89b57a
-27	2919	7496280201274315	CMakeFiles/g2d.dir/lib/miniwin.cpp.obj	486e2dd34ac05493
-17	734	7496338473192797	CMakeFiles/g2d.dir/game/escenario/Fondo.cpp.obj	4f2a1647886d6049
-21	789	7496338473232690	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	313ed3ba7ccc4085
-134	1168	7504632169933260	CMakeFiles/g2d.dir/game/escenario/Fondo.cpp.obj	f16966e2405dae42
-116	1175	7504632169742922	CMakeFiles/g2d.dir/main.cpp.obj	a8e12f1b0301d109
-145	1330	7504632170049362	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	aaf80f01b18839e1
+26	527	7504868740652936	CMakeFiles/g2d.dir/main.cpp.obj	a8e12f1b0301d109
+528	679	7504868745676558	g2d.exe	9a4efd703d873989
+17	526	7504871844380252	build.ninja	564779c74a89b57a
 126	3961	7504632169849283	CMakeFiles/g2d.dir/lib/miniwin.cpp.obj	aad04dd31015e55a
-3965	4233	7504632208241517	g2d.exe	9a4efd703d873989
+34	2230	7504860438271702	CMakeFiles/g2d.dir/game/escenario/Fondo.cpp.obj	f16966e2405dae42
+24	514	7504849333886060	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	aaf80f01b18839e1
+26	739	7504872803002432	CMakeFiles/g2d.dir/game/jugador/skin/ColorFlyweight.cpp.obj	ae99d9c665835641
+740	922	7504872810141874	g2d.exe	de9b29a909cf284d
+24	915	7504876032668466	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	aaf80f01b18839e1
+26	896	7504876491866887	CMakeFiles/g2d.dir/game/jugador/skin/Player_1.cpp.obj	aaf80f01b18839e1
+897	1045	7504876500573480	g2d.exe	de9b29a909cf284d

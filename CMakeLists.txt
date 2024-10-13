@@ -13,4 +13,6 @@ add_executable(g2d
         game/escenario/Fondo.h
         game/jugador/skin/Player_1.cpp
         game/jugador/skin/Player_1.h
+        game/jugador/skin/ColorFlyweight.cpp
+        game/jugador/skin/ColorFlyweight.h
 )

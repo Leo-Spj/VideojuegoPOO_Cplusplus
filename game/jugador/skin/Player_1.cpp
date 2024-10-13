@@ -1,25 +1,21 @@
 // Created by Leo on 01/10/2024.
 
 #include "Player_1.h"
+#include "ColorFlyweight.h"
 #include "../../../lib/miniwin.h"
 #include <vector>
 #include <string>
 
 using namespace miniwin;
 
-Player_1::Player_1() : posX(0), posY(0), escalado(5), pintarBorde(true) {}
+Player_1::Player_1() {  }
 
 Player_1::Player_1(int ancho, int alto)
-    : posX(0), posY(0), escalado(5), pintarBorde(true),
-      anchoPantalla(ancho), altoPantalla(alto) {
+    : posX(0), posY(0), filaMayor(5), columnaMayor(8), escalado(20), pintarBorde(true), anchoPantalla(ancho), altoPantalla(alto) {
 }
 
 void Player_1::colores(const std::string& color) {
-    if (color == "c_1") {
-        color_rgb(157, 133, 133);
-    } else if (color == "c_2") {
-        color_rgb(240, 157, 157);
-    }
+    ColorFlyweight::getInstance().setColor(color);
 }
 
 void Player_1::dibujaCuadrado(int a, int b, const std::string& colorRelleno, int c, int d) {
@@ -39,6 +35,7 @@ void Player_1::dibujaCuadrado(int a, int b, const std::string& colorRelleno, int
 }
 
 void Player_1::dibujaFila(int fila, const std::vector<std::string>& colores) {
+
     for (int i = 0; i < colores.size(); ++i) {
         if (!colores[i].empty()) {
             dibujaCuadrado(i + posX, fila + posY, colores[i], 0, 0);
@@ -47,15 +44,33 @@ void Player_1::dibujaFila(int fila, const std::vector<std::string>& colores) {
 }
 
 void Player_1::dibujar() {
-    dibujaFila(0, {"", "", "", "", "", "", "", ""});
-    dibujaFila(1, {"", "", "", "c_1", "c_1", "", "", ""});
-    dibujaFila(2, {"", "", "c_1", "c_1", "c_1", "c_1", "", ""});
-    dibujaFila(3, {"", "c_1", "c_1", "c_1", "c_1", "c_1", "c_1", ""});
-    dibujaFila(4, {"c_1", "c_1", "c_2", "c_1", "c_1", "c_2", "c_1", "c_1"});
-    dibujaFila(5, {"c_1", "", "c_2", "", "", "c_2", "", "c_1"});
+    dibujaFila(0, {"", "", "", "c_1", "c_1", "", "", ""});
+    dibujaFila(1, {"", "", "c_1", "c_1", "c_1", "c_1", "", ""});
+    dibujaFila(2, {"", "c_1", "c_1", "c_1", "c_1", "c_1", "c_1", ""});
+    dibujaFila(3, {"c_1", "c_1", "c_2", "c_1", "c_1", "c_2", "c_1", "c_1"});
+    dibujaFila(4, {"c_1", "", "c_2", "", "", "c_2", "", "c_1"});
 }
 
 void Player_1::mover(int dx, int dy) {
-    posX += dx;
-    posY += dy;
+    int nuevoPosX = posX + dx;
+    int nuevoPosY = posY + dy;
+
+    // Limitar el movimiento dentro de los límites de la pantalla
+    if (nuevoPosX < 0) {
+        posX = 0;
+    } else if (nuevoPosX > (anchoPantalla / escalado) - columnaMayor) {
+        posX = (anchoPantalla / escalado) - columnaMayor;
+    } else {
+        posX = nuevoPosX;
+    }
+
+    if (nuevoPosY < 0) {
+        posY = 0;
+    } else if (nuevoPosY > (altoPantalla / escalado) - filaMayor) {
+        posY = (altoPantalla / escalado) - filaMayor;
+    } else {
+        posY = nuevoPosY;
+    }
 }
+
+

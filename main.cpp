@@ -15,7 +15,7 @@ int main() {
 
         refresca();
 
-        espera(30);
+        espera(20); // 50 fps
     }
 
     return 0;
