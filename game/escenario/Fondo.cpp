@@ -58,10 +58,27 @@ void Fondo::movimientoJugador() {
 }
 
 void Fondo::actualizarEnemigos() {
-    for (auto enemigo : enemigos) {
+    for (auto enemigoIt = enemigos.begin(); enemigoIt != enemigos.end();) {
+        EnemigoNiv1* enemigo = static_cast<EnemigoNiv1*>(*enemigoIt);
         enemigo->mover();
         enemigo->dibujar();
-        static_cast<EnemigoNiv1*>(enemigo)->disparar();
-        static_cast<EnemigoNiv1*>(enemigo)->actualizarBalas();
+        enemigo->disparar();
+        enemigo->actualizarBalas();
+
+        bool enemigoEliminado = false;
+        for (auto balaIt = player.getBalas().begin(); balaIt != player.getBalas().end();) {
+            if (balaIt->colisionaCon(enemigo->getPosX() * enemigo->getEscalado(), enemigo->getPosY() * enemigo->getEscalado(), enemigo->getColumnaMayor() * enemigo->getEscalado(), enemigo->getFilaMayor() * enemigo->getEscalado())) {
+                balaIt = player.getBalas().erase(balaIt);
+                enemigoIt = enemigos.erase(enemigoIt);
+                enemigoEliminado = true;
+                break;
+            } else {
+                ++balaIt;
+            }
+        }
+
+        if (!enemigoEliminado) {
+            ++enemigoIt;
+        }
     }
 }

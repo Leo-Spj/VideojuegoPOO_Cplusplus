@@ -16,6 +16,9 @@ public:
     int getEscalado() const { return escalado; }
     int getColumnaMayor() const { return columnaMayor; }
     int getFilaMayor() const { return filaMayor; }
+    const std::vector<Bala>& getBalas() const { return balas; }
+    std::vector<Bala>& getBalas() { return balas; } // Non-const version
+
 
 private:
     void colores(const std::string& color);

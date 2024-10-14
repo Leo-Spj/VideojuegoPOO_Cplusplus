@@ -10,6 +10,8 @@ public:
     Enemigo(int x, int y, int escalado);
     virtual void mover() = 0;
     virtual void dibujar() = 0;
+    int getPosX() const { return posX; }
+    int getPosY() const { return posY; }
 
 protected:
     int posX, posY;

@@ -7,6 +7,7 @@
 class Bala {
 public:
     Bala(int x, int y, int velocidad, const std::string& color);
+    bool colisionaCon(int x, int y, int ancho, int alto) const;
     void mover();
     void dibujar() const;
     bool fueraDePantalla(int anchoPantalla, int altoPantalla) const;

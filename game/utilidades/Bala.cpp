@@ -20,3 +20,7 @@ void Bala::dibujar() const {
 bool Bala::fueraDePantalla(int anchoPantalla, int altoPantalla) const {
     return posY < 0 || posY > altoPantalla || posX < 0 || posX > anchoPantalla;
 }
+
+bool Bala::colisionaCon(int x, int y, int ancho, int alto) const {
+    return posX < x + ancho && posX + 5 > x && posY < y + alto && posY + 10 > y;
+}
