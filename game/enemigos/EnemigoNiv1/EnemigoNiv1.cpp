@@ -3,10 +3,10 @@
 
 using namespace miniwin;
 
-EnemigoNiv1::EnemigoNiv1() : Enemigo(0, 0, 0) {}
+EnemigoNiv1::EnemigoNiv1() : Enemigo(0, 0, 0), direccionX(1), direccionY(1) {}
 
 EnemigoNiv1::EnemigoNiv1(int ancho, int alto)
-    : Enemigo(0, 0, 15), filaMayor(5), columnaMayor(6), anchoPantalla(ancho), altoPantalla(alto) {
+    : Enemigo(0, 0, 15), filaMayor(5), columnaMayor(6), anchoPantalla(ancho), altoPantalla(alto), direccionX(1), direccionY(1) {
 }
 
 void EnemigoNiv1::colores(const std::string& color) {
@@ -34,17 +34,20 @@ void EnemigoNiv1::dibujaFila(int fila, const std::vector<std::string>& colores) 
         }
     }
 }
-
 void EnemigoNiv1::mover() {
-    // Default behavior for the pure virtual function
-    moverConParametros(0, 0);
+    int dx = direccionX;
+
+    if (posX + dx < 0 || posX + dx > (anchoPantalla / escalado) - columnaMayor) {
+        direccionX = -direccionX;
+    }
+
+    moverConParametros(direccionX, 0);
 }
 
 void EnemigoNiv1::moverConParametros(int dx, int dy) {
     int nuevoPosX = posX + dx;
     int nuevoPosY = posY + dy;
 
-    // Limitar el movimiento dentro de los límites de la pantalla
     if (nuevoPosX < 0) {
         posX = 0;
     } else if (nuevoPosX > (anchoPantalla / escalado) - columnaMayor) {
@@ -69,4 +72,29 @@ void EnemigoNiv1::dibujar() {
     dibujaFila(3, {"", "c_1", "c_1", "c_1", "c_1", ""});
     dibujaFila(4, {"", "", "c_1", "c_1", "", ""});
     dibujaFila(5, {"", "", "c_1", "c_1", "", ""});
+
+    for (const auto& bala : balas) {
+        bala.dibujar();
+    }
+}
+
+void EnemigoNiv1::disparar() {
+    auto ahora = std::chrono::steady_clock::now();
+    std::chrono::duration<double> tiempoTranscurrido = ahora - ultimoDisparo;
+
+    if (tiempoTranscurrido.count() >= 2.0) {
+        balas.emplace_back(posX * escalado + (columnaMayor * escalado) / 2, posY * escalado + filaMayor * escalado, 5, "c_1");
+        ultimoDisparo = ahora;
+    }
+}
+
+void EnemigoNiv1::actualizarBalas() {
+    for (auto it = balas.begin(); it != balas.end();) {
+        it->mover();
+        if (it->fueraDePantalla(anchoPantalla, altoPantalla)) {
+            it = balas.erase(it);
+        } else {
+            ++it;
+        }
+    }
 }

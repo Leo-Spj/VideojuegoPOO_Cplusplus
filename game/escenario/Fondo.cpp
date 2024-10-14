@@ -59,5 +59,7 @@ void Fondo::actualizarEnemigos() {
     for (auto enemigo : enemigos) {
         enemigo->mover();
         enemigo->dibujar();
+        static_cast<EnemigoNiv1*>(enemigo)->disparar();
+        static_cast<EnemigoNiv1*>(enemigo)->actualizarBalas();
     }
 }

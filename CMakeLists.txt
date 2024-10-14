@@ -19,4 +19,6 @@ add_executable(g2d
         game/enemigos/Enemigo.h
         game/enemigos/EnemigoNiv1/EnemigoNiv1.cpp
         game/enemigos/EnemigoNiv1/EnemigoNiv1.h
+        game/utilidades/Bala.cpp
+        game/utilidades/Bala.h
 )

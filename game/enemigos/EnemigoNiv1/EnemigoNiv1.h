@@ -4,14 +4,18 @@
 #include "../Enemigo.h"
 #include <vector>
 #include <string>
+#include "../../utilidades/Bala.h"
+#include <chrono>
 
 class EnemigoNiv1 : public Enemigo {
 public:
     EnemigoNiv1();
     EnemigoNiv1(int ancho, int alto);
-    void mover() override; // Override the pure virtual function
-    void moverConParametros(int dx, int dy); // New function with parameters
+    void mover() override;
+    void moverConParametros(int dx, int dy);
     void dibujar() override;
+    void disparar();
+    void actualizarBalas();
     int getEscalado() const { return escalado; }
     int getColumnaMayor() const { return columnaMayor; }
     int getFilaMayor() const { return filaMayor; }
@@ -25,6 +29,10 @@ private:
     int altoPantalla;
     int filaMayor;
     int columnaMayor;
+    std::vector<Bala> balas;
+    std::chrono::time_point<std::chrono::steady_clock> ultimoDisparo;
+    int direccionX;
+    int direccionY;
 };
 
 #endif // ENEMIGONIV1_H
