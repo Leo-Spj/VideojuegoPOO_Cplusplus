@@ -8,7 +8,7 @@
 
 using namespace miniwin;
 
-EnemigoNiv1::EnemigoNiv1() : Enemigo(0, 0, 20) {}
+EnemigoNiv1::EnemigoNiv1() : Enemigo(0, 0, 0) {}
 
 EnemigoNiv1::EnemigoNiv1(int x, int y, int escalado) : Enemigo(x, y, escalado) {}
 

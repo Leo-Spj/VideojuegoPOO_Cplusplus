@@ -20,8 +20,8 @@ Fondo::Fondo() : escalado(5) {
     player.mover((anchoPantalla / (2 * player.getEscalado())) - (player.getColumnaMayor()/2) , (altoPantalla / (2 * player.getEscalado())) + (player.getFilaMayor()/2) + bajarImagen);
 
     // Añadir enemigos
-    enemigos.push_back(new EnemigoNiv1(10, 10, escalado));
-    enemigos.push_back(new EnemigoNiv1(50, 50, escalado));
+    enemigos.push_back(new EnemigoNiv1(10, 10, 15));
+    enemigos.push_back(new EnemigoNiv1(50, 50, 15));
 }
 
 Fondo::~Fondo() {
