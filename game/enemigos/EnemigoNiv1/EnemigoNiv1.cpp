@@ -1,8 +1,3 @@
-//
-// Created by Leo on 12/10/2024.
-//
-
-
 #include "EnemigoNiv1.h"
 #include "../../../lib/miniwin.h"
 
@@ -10,10 +5,8 @@ using namespace miniwin;
 
 EnemigoNiv1::EnemigoNiv1() : Enemigo(0, 0, 0) {}
 
-EnemigoNiv1::EnemigoNiv1(int x, int y, int escalado) : Enemigo(x, y, escalado) {}
-
-void EnemigoNiv1::setEscalado(int nuevoEscalado) {
-    escalado = nuevoEscalado;
+EnemigoNiv1::EnemigoNiv1(int ancho, int alto)
+    : Enemigo(0, 0, 15), filaMayor(5), columnaMayor(6), anchoPantalla(ancho), altoPantalla(alto) {
 }
 
 void EnemigoNiv1::colores(const std::string& color) {
@@ -43,8 +36,30 @@ void EnemigoNiv1::dibujaFila(int fila, const std::vector<std::string>& colores) 
 }
 
 void EnemigoNiv1::mover() {
-    posX += 1; // Simple movement to the right
-    if (posX > 200) posX = 0; // Reset position if it goes off-screen
+    // Default behavior for the pure virtual function
+    moverConParametros(0, 0);
+}
+
+void EnemigoNiv1::moverConParametros(int dx, int dy) {
+    int nuevoPosX = posX + dx;
+    int nuevoPosY = posY + dy;
+
+    // Limitar el movimiento dentro de los límites de la pantalla
+    if (nuevoPosX < 0) {
+        posX = 0;
+    } else if (nuevoPosX > (anchoPantalla / escalado) - columnaMayor) {
+        posX = (anchoPantalla / escalado) - columnaMayor;
+    } else {
+        posX = nuevoPosX;
+    }
+
+    if (nuevoPosY < 0) {
+        posY = 0;
+    } else if (nuevoPosY > (altoPantalla / escalado) - filaMayor) {
+        posY = (altoPantalla / escalado) - filaMayor;
+    } else {
+        posY = nuevoPosY;
+    }
 }
 
 void EnemigoNiv1::dibujar() {

@@ -14,14 +14,18 @@ Fondo::Fondo() : escalado(5) {
     anchoPantalla = 200 * escalado;
     altoPantalla = 150 * escalado;
     player = Player_1(anchoPantalla, altoPantalla);
-
     // Centrando al jugador en la pantalla
     int bajarImagen =  13;
     player.mover((anchoPantalla / (2 * player.getEscalado())) - (player.getColumnaMayor()/2) , (altoPantalla / (2 * player.getEscalado())) + (player.getFilaMayor()/2) + bajarImagen);
 
     // Añadir enemigos
-    enemigos.push_back(new EnemigoNiv1(10, 10, 15));
-    enemigos.push_back(new EnemigoNiv1(50, 50, 15));
+    EnemigoNiv1* enemigo1 = new EnemigoNiv1(anchoPantalla, altoPantalla);
+    enemigo1->moverConParametros(20, 1);
+    enemigos.push_back(enemigo1);
+
+    EnemigoNiv1* enemigo2 = new EnemigoNiv1(anchoPantalla, altoPantalla);
+    enemigo2->moverConParametros(40, 6);
+    enemigos.push_back(enemigo2);
 }
 
 Fondo::~Fondo() {
