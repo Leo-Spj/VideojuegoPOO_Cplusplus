@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "../../utilidades/Bala.h"
 
 class Player_1 {
 public:
@@ -10,10 +11,11 @@ public:
     Player_1(int ancho, int alto);
     void dibujar();
     void mover(int dx, int dy);
+    void disparar();
+    void actualizarBalas();
     int getEscalado() const { return escalado; }
     int getColumnaMayor() const { return columnaMayor; }
     int getFilaMayor() const { return filaMayor; }
-
 
 private:
     void colores(const std::string& color);
@@ -27,6 +29,7 @@ private:
     int altoPantalla;
     int filaMayor;
     int columnaMayor;
+    std::vector<Bala> balas;
 };
 
 #endif // PLAYER_1_H

@@ -38,6 +38,7 @@ void Fondo::redimensionar() {
     vredimensiona(anchoPantalla, altoPantalla);
 }
 
+// Fondo.cpp
 void Fondo::movimientoJugador() {
     bool izquierda = GetAsyncKeyState(VK_LEFT) & 0x8000;
     bool derecha = GetAsyncKeyState(VK_RIGHT) & 0x8000;
@@ -53,6 +54,7 @@ void Fondo::movimientoJugador() {
 
     player.mover(dx, dy);
     player.dibujar();
+    player.actualizarBalas();
 }
 
 void Fondo::actualizarEnemigos() {

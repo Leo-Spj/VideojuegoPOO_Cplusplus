@@ -1,5 +1,3 @@
-// Created by Leo on 01/10/2024.
-
 #include "Player_1.h"
 #include "ColorFlyweight.h"
 #include "../../../lib/miniwin.h"
@@ -8,7 +6,7 @@
 
 using namespace miniwin;
 
-Player_1::Player_1() {  }
+Player_1::Player_1() { }
 
 Player_1::Player_1(int ancho, int alto)
     : posX(0), posY(0), filaMayor(5), columnaMayor(8), escalado(20), pintarBorde(true), anchoPantalla(ancho), altoPantalla(alto) {
@@ -35,7 +33,6 @@ void Player_1::dibujaCuadrado(int a, int b, const std::string& colorRelleno, int
 }
 
 void Player_1::dibujaFila(int fila, const std::vector<std::string>& colores) {
-
     for (int i = 0; i < colores.size(); ++i) {
         if (!colores[i].empty()) {
             dibujaCuadrado(i + posX, fila + posY, colores[i], 0, 0);
@@ -49,6 +46,10 @@ void Player_1::dibujar() {
     dibujaFila(2, {"", "c_1", "c_1", "c_1", "c_1", "c_1", "c_1", ""});
     dibujaFila(3, {"c_1", "c_1", "c_2", "c_1", "c_1", "c_2", "c_1", "c_1"});
     dibujaFila(4, {"c_1", "", "c_2", "", "", "c_2", "", "c_1"});
+
+    for (const auto& bala : balas) {
+        bala.dibujar();
+    }
 }
 
 void Player_1::mover(int dx, int dy) {
@@ -71,6 +72,23 @@ void Player_1::mover(int dx, int dy) {
     } else {
         posY = nuevoPosY;
     }
+
+    if (tecla() == ESPACIO) {
+        disparar();
+    }
 }
 
+void Player_1::disparar() {
+    balas.emplace_back(posX * escalado + (columnaMayor * escalado) / 2, posY * escalado, -5, "c_1");
+}
 
+void Player_1::actualizarBalas() {
+    for (auto it = balas.begin(); it != balas.end();) {
+        it->mover();
+        if (it->fueraDePantalla(anchoPantalla, altoPantalla)) {
+            it = balas.erase(it);
+        } else {
+            ++it;
+        }
+    }
+}
