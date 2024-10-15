@@ -82,6 +82,16 @@ void Fondo::actualizarEnemigos() {
         if (!enemigoEliminado) {
             ++enemigoIt;
         }
+
+        // Verificar colisión de balas enemigas con el jugador
+        for (const auto& bala : enemigo->getBalas()) {
+            if (bala.colisionaCon(player.getPosX() * player.getEscalado(), player.getPosY() * player.getEscalado(), player.getColumnaMayor() * player.getEscalado(), player.getFilaMayor() * player.getEscalado())) {
+                float x = anchoPantalla / 2;
+                float y = altoPantalla / 2;
+                texto(x, y, "perdiste");
+                return; // Terminar el juego
+            }
+        }
     }
 
     // Mostrar "ganaste" si no hay más enemigos

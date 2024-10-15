@@ -1,3 +1,4 @@
+// EnemigoNiv1.h
 #ifndef ENEMIGONIV1_H
 #define ENEMIGONIV1_H
 
@@ -19,6 +20,7 @@ public:
     int getEscalado() const { return escalado; }
     int getColumnaMayor() const { return anchoFigura; }
     int getFilaMayor() const { return altoFigura; }
+    const std::vector<Bala>& getBalas() const { return balas; }
 
 private:
     void colores(const std::string& color);

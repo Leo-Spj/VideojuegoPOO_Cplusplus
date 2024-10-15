@@ -1,3 +1,4 @@
+// Player_1.h
 #ifndef PLAYER_1_H
 #define PLAYER_1_H
 
@@ -13,12 +14,14 @@ public:
     void mover(int dx, int dy);
     void disparar();
     void actualizarBalas();
+    int getPosX() const { return posX; }
+    int getPosY() const { return posY; }
     int getEscalado() const { return escalado; }
     int getColumnaMayor() const { return anchoFigura; }
     int getFilaMayor() const { return altoFigura; }
     const std::vector<Bala>& getBalas() const { return balas; }
     std::vector<Bala>& getBalas() { return balas; } // Non-const version
-
+    bool estaVivo() const { return vivo; }
 
 private:
     void colores(const std::string& color);
@@ -33,6 +36,7 @@ private:
     int altoFigura;
     int anchoFigura;
     std::vector<Bala> balas;
+    bool vivo; // Nueva bandera para indicar si el jugador está vivo
 };
 
 #endif // PLAYER_1_H
