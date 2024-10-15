@@ -92,6 +92,11 @@ void Player_1::dibujar() {
     for (const auto& bala : balas) {
         bala.dibujar();
     }
+
+    // Mostrar nombre debajo de la nave
+    float x = posX * escalado;
+    float y = (posY + altoFigura) * escalado ; // Ajustar la posición Y para que esté debajo de la nave
+    texto(x, y, "Leonardo Espejo");
 }
 
 void Player_1::mover(int dx, int dy) {
