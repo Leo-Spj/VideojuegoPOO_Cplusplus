@@ -22,6 +22,7 @@ public:
     const std::vector<Bala>& getBalas() const { return balas; }
     std::vector<Bala>& getBalas() { return balas; } // Non-const version
     bool estaVivo() const { return vivo; }
+    void morir() { vivo = false; } // Nueva función para marcar al jugador como muerto
 
 private:
     void colores(const std::string& color);

@@ -6,10 +6,10 @@
 
 using namespace miniwin;
 
-Player_1::Player_1() { }
+Player_1::Player_1() : vivo(true) { }
 
 Player_1::Player_1(int ancho, int alto)
-    : posX(0), posY(0), altoFigura(46), anchoFigura(30), escalado(5), pintarBorde(false), anchoPantalla(ancho), altoPantalla(alto) {
+    : posX(0), posY(0), altoFigura(46), anchoFigura(30), escalado(5), pintarBorde(false), anchoPantalla(ancho), altoPantalla(alto), vivo(true) {
 }
 
 void Player_1::colores(const std::string& color) {
@@ -41,7 +41,9 @@ void Player_1::dibujaFila(int fila, const std::vector<std::string>& colores) {
 }
 
 void Player_1::dibujar() {
-// Dibujando
+    if (!vivo) return; // No dibujar si el jugador está muerto
+
+    // Dibujando
     dibujaFila(0, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "c_6", "", "", "", "", "", "", "", "", "", "", "", "", "", ""});
     dibujaFila(1, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "c_6", "c_1", "c_6", "", "", "", "", "", "", "", "", "", "", "", "", ""});
     dibujaFila(2, {"", "", "", "", "", "", "", "", "", "", "", "", "", "c_6", "c_1", "c_1", "c_1", "c_6", "", "", "", "", "", "", "", "", "", "", "", ""});
@@ -100,6 +102,8 @@ void Player_1::dibujar() {
 }
 
 void Player_1::mover(int dx, int dy) {
+    if (!vivo) return; // No mover si el jugador está muerto
+
     int nuevoPosX = posX + dx;
     int nuevoPosY = posY + dy;
 
@@ -126,6 +130,8 @@ void Player_1::mover(int dx, int dy) {
 }
 
 void Player_1::disparar() {
+    if (!vivo) return; // No disparar si el jugador está muerto
+
     balas.emplace_back(posX * escalado + (anchoFigura * escalado) / 2, posY * escalado, -30, "c_1");
 }
 

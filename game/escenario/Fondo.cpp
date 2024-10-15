@@ -1,14 +1,9 @@
-//
-// Created by Leo on 01/10/2024.
-//
-
 #include "Fondo.h"
 #include "../../lib/miniwin.h"
 #include <windows.h>
 #include "../enemigos/EnemigoNiv1/EnemigoNiv1.h"
 
 using namespace miniwin;
-
 
 Fondo::Fondo() : escalado(5) {
     anchoPantalla = 200 * escalado;
@@ -39,6 +34,14 @@ void Fondo::redimensionar() {
 }
 
 void Fondo::movimientoJugador() {
+    if (!player.estaVivo()) {
+        texto(anchoPantalla / 2, altoPantalla / 2, "perdiste");
+        if (tecla() == ESPACIO) {
+            // Reiniciar el juego
+            player = Player_1(anchoPantalla, altoPantalla);
+        }
+        return;
+    }
 
     int velocidad = 5;
 
@@ -86,9 +89,7 @@ void Fondo::actualizarEnemigos() {
         // Verificar colisión de balas enemigas con el jugador
         for (const auto& bala : enemigo->getBalas()) {
             if (bala.colisionaCon(player.getPosX() * player.getEscalado(), player.getPosY() * player.getEscalado(), player.getColumnaMayor() * player.getEscalado(), player.getFilaMayor() * player.getEscalado())) {
-                float x = anchoPantalla / 2;
-                float y = altoPantalla / 2;
-                texto(x, y, "perdiste");
+                player.morir();
                 return; // Terminar el juego
             }
         }
