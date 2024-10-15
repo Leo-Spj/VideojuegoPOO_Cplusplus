@@ -20,11 +20,11 @@ Fondo::Fondo() : escalado(5) {
 
     // Añadir enemigos
     EnemigoNiv1* enemigo1 = new EnemigoNiv1(anchoPantalla, altoPantalla);
-    enemigo1->moverConParametros(20, 1);
+    enemigo1->moverConParametros(1, 1);
     enemigos.push_back(enemigo1);
 
     EnemigoNiv1* enemigo2 = new EnemigoNiv1(anchoPantalla, altoPantalla);
-    enemigo2->moverConParametros(40, 6);
+    enemigo2->moverConParametros(120, 6);
     enemigos.push_back(enemigo2);
 }
 
