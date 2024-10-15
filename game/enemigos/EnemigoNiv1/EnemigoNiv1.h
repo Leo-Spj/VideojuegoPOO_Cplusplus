@@ -17,8 +17,8 @@ public:
     void disparar();
     void actualizarBalas();
     int getEscalado() const { return escalado; }
-    int getColumnaMayor() const { return columnaMayor; }
-    int getFilaMayor() const { return filaMayor; }
+    int getColumnaMayor() const { return anchoFigura; }
+    int getFilaMayor() const { return altoFigura; }
 
 private:
     void colores(const std::string& color);
@@ -27,8 +27,8 @@ private:
 
     int anchoPantalla;
     int altoPantalla;
-    int filaMayor;
-    int columnaMayor;
+    int altoFigura;
+    int anchoFigura;
     std::vector<Bala> balas;
     std::chrono::time_point<std::chrono::steady_clock> ultimoDisparo;
     int direccionX;
