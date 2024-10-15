@@ -14,8 +14,8 @@ public:
     void disparar();
     void actualizarBalas();
     int getEscalado() const { return escalado; }
-    int getColumnaMayor() const { return columnaMayor; }
-    int getFilaMayor() const { return filaMayor; }
+    int getColumnaMayor() const { return anchoFigura; }
+    int getFilaMayor() const { return altoFigura; }
     const std::vector<Bala>& getBalas() const { return balas; }
     std::vector<Bala>& getBalas() { return balas; } // Non-const version
 
@@ -30,8 +30,8 @@ private:
     bool pintarBorde;
     int anchoPantalla;
     int altoPantalla;
-    int filaMayor;
-    int columnaMayor;
+    int altoFigura;
+    int anchoFigura;
     std::vector<Bala> balas;
 };
 

@@ -27,13 +27,15 @@ void EnemigoNiv1::dibujaFila(int fila, const std::vector<std::string>& colores) 
 }
 
 void EnemigoNiv1::mover() {
-    int dx = direccionX;
+    int velocidad = 1.75;
+
+    int dx = direccionX * velocidad;
 
     if (posX + dx < 0 || posX + dx > (anchoPantalla / escalado) - columnaMayor) {
         direccionX = -direccionX;
     }
 
-    moverConParametros(direccionX, 0);
+    moverConParametros(direccionX * velocidad, 0);
 }
 
 void EnemigoNiv1::moverConParametros(int dx, int dy) {
@@ -75,7 +77,7 @@ void EnemigoNiv1::disparar() {
     std::chrono::duration<double> tiempoTranscurrido = ahora - ultimoDisparo;
 
     if (tiempoTranscurrido.count() >= 2.0) {
-        balas.emplace_back(posX * escalado + (columnaMayor * escalado) / 2, posY * escalado + filaMayor * escalado, 5, "c_1");
+        balas.emplace_back(posX * escalado + (columnaMayor * escalado) / 2, posY * escalado + filaMayor * escalado, 30, "c_1");
         ultimoDisparo = ahora;
     }
 }

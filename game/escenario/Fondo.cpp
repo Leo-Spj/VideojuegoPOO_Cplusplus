@@ -38,8 +38,10 @@ void Fondo::redimensionar() {
     vredimensiona(anchoPantalla, altoPantalla);
 }
 
-// Fondo.cpp
 void Fondo::movimientoJugador() {
+
+    int velocidad = 5;
+
     bool izquierda = GetAsyncKeyState(VK_LEFT) & 0x8000;
     bool derecha = GetAsyncKeyState(VK_RIGHT) & 0x8000;
     bool arriba = GetAsyncKeyState(VK_UP) & 0x8000;
@@ -47,10 +49,10 @@ void Fondo::movimientoJugador() {
 
     int dx = 0, dy = 0;
 
-    if (izquierda) dx -= 1;
-    if (derecha) dx += 1;
-    if (arriba) dy -= 1;
-    if (abajo) dy += 1;
+    if (izquierda) dx -= velocidad;
+    if (derecha) dx += velocidad;
+    if (arriba) dy -= velocidad;
+    if (abajo) dy += velocidad;
 
     player.mover(dx, dy);
     player.dibujar();
@@ -80,5 +82,12 @@ void Fondo::actualizarEnemigos() {
         if (!enemigoEliminado) {
             ++enemigoIt;
         }
+    }
+
+    // Mostrar "ganaste" si no hay más enemigos
+    if (enemigos.empty()) {
+        float x = anchoPantalla / 2;
+        float y = altoPantalla / 2;
+        texto(x, y, "ganaste");
     }
 }
