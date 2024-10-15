@@ -13,7 +13,7 @@ Player_1::Player_1(int ancho, int alto)
 }
 
 void Player_1::colores(const std::string& color) {
-    ColorFlyweight::getInstance().setColor(color);
+    ColorFlyweight::getInstance().setColor_Player1(color);
 }
 
 void Player_1::dibujaCuadrado(int a, int b, const std::string& colorRelleno, int c, int d) {

@@ -1,4 +1,3 @@
-
 #include "Bala.h"
 #include "../../lib/miniwin.h"
 #include "../jugador/skin/ColorFlyweight.h"
@@ -13,7 +12,7 @@ void Bala::mover() {
 }
 
 void Bala::dibujar() const {
-    ColorFlyweight::getInstance().setColor(color);
+    ColorFlyweight::getInstance().setColor_Bala(color);
     rectangulo_lleno(posX, posY, posX + 5, posY + 10);
 }
 

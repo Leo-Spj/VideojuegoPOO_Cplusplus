@@ -1,5 +1,6 @@
 #include "EnemigoNiv1.h"
 #include "../../../lib/miniwin.h"
+#include "../../jugador/skin/ColorFlyweight.h"
 
 using namespace miniwin;
 
@@ -9,21 +10,11 @@ EnemigoNiv1::EnemigoNiv1(int ancho, int alto)
     : Enemigo(0, 0, 15), filaMayor(5), columnaMayor(6), anchoPantalla(ancho), altoPantalla(alto), direccionX(1), direccionY(1) {
 }
 
-void EnemigoNiv1::colores(const std::string& color) {
-    if (color == "c_1") {
-        color_rgb(255, 0, 0); // Red
-    } else if (color == "c_2") {
-        color_rgb(0, 255, 0); // Green
-    } else if (color == "c_3") {
-        color_rgb(0, 0, 255); // Blue
-    }
-}
-
 void EnemigoNiv1::dibujaCuadrado(int a, int b, const std::string& colorRelleno, int c, int d) {
     const int x = a * escalado;
     const int y = b * escalado;
 
-    colores(colorRelleno);
+    ColorFlyweight::getInstance().setColor_Enemigo1(colorRelleno);
     rectangulo_lleno(x + c, y + d, x + escalado + c, y + escalado + d);
 }
 
@@ -34,6 +25,7 @@ void EnemigoNiv1::dibujaFila(int fila, const std::vector<std::string>& colores) 
         }
     }
 }
+
 void EnemigoNiv1::mover() {
     int dx = direccionX;
 
