@@ -19,8 +19,12 @@ Fondo::Fondo() : escalado(5) {
     enemigos.push_back(enemigo1);
 
     EnemigoNiv1* enemigo2 = new EnemigoNiv1(anchoPantalla, altoPantalla);
-    enemigo2->moverConParametros(120, 6);
+    enemigo2->moverConParametros(100, 6);
     enemigos.push_back(enemigo2);
+
+    EnemigoNiv1* enemigo3 = new EnemigoNiv1(anchoPantalla, altoPantalla);
+    enemigo3->moverConParametros(190, 6);
+    enemigos.push_back(enemigo3);
 }
 
 Fondo::~Fondo() {
@@ -99,6 +103,6 @@ void Fondo::actualizarEnemigos() {
     if (enemigos.empty()) {
         float x = anchoPantalla / 2;
         float y = altoPantalla / 2;
-        texto(x, y, "ganaste");
+        texto(x, y, "GANASTE - LEONARDO ESPEJO");
     }
 }

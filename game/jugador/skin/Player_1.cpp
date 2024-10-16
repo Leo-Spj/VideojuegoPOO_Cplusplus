@@ -9,7 +9,7 @@ using namespace miniwin;
 Player_1::Player_1() : vivo(true) { }
 
 Player_1::Player_1(int ancho, int alto)
-    : posX(0), posY(0), altoFigura(46), anchoFigura(30), escalado(5), pintarBorde(false), anchoPantalla(ancho), altoPantalla(alto), vivo(true) {
+    : posX(0), posY(0), altoFigura(46), anchoFigura(30), escalado(2), pintarBorde(false), anchoPantalla(ancho), altoPantalla(alto), vivo(true) {
 }
 
 void Player_1::colores(const std::string& color) {
@@ -98,7 +98,7 @@ void Player_1::dibujar() {
     // Mostrar nombre debajo de la nave
     float x = posX * escalado;
     float y = (posY + altoFigura) * escalado ; // Ajustar la posición Y para que esté debajo de la nave
-    texto(x, y, "Leonardo Espejo");
+    texto(x, y, "Leonardo Espejo U21315835");
 }
 
 void Player_1::mover(int dx, int dy) {

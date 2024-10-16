@@ -4,6 +4,7 @@
 using namespace miniwin;
 
 int main() {
+
     Fondo fondo;
     fondo.redimensionar();
 
