@@ -9,7 +9,7 @@ using namespace miniwin;
 Player_1::Player_1() : vivo(true) { }
 
 Player_1::Player_1(int ancho, int alto)
-    : posX(0), posY(0), altoFigura(46), anchoFigura(30), escalado(2), pintarBorde(false), anchoPantalla(ancho), altoPantalla(alto), vivo(true) {
+    : posX(0), posY(0), altoFigura(46), anchoFigura(30), escalado(6), pintarBorde(false), anchoPantalla(ancho), altoPantalla(alto), vivo(true) {
 }
 
 void Player_1::colores(const std::string& color) {

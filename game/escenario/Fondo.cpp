@@ -10,7 +10,7 @@ Fondo::Fondo() : escalado(5) {
     altoPantalla = 150 * escalado;
     player = Player_1(anchoPantalla, altoPantalla);
     // Centrando al jugador en la pantalla
-    int bajarImagen =  13;
+    int bajarImagen =  -20;
     player.mover((anchoPantalla / (2 * player.getEscalado())) - (player.getColumnaMayor()/2) , (altoPantalla / (2 * player.getEscalado())) + (player.getFilaMayor()/2) + bajarImagen);
 
     // Añadir enemigos
@@ -43,6 +43,7 @@ void Fondo::movimientoJugador() {
         if (tecla() == ESPACIO) {
             // Reiniciar el juego
             player = Player_1(anchoPantalla, altoPantalla);
+            player.mover((anchoPantalla / (2 * player.getEscalado())) - (player.getColumnaMayor()/2) , (altoPantalla / (2 * player.getEscalado())) + (player.getFilaMayor()/2) - 20);
         }
         return;
     }
@@ -51,15 +52,11 @@ void Fondo::movimientoJugador() {
 
     bool izquierda = GetAsyncKeyState(VK_LEFT) & 0x8000;
     bool derecha = GetAsyncKeyState(VK_RIGHT) & 0x8000;
-    bool arriba = GetAsyncKeyState(VK_UP) & 0x8000;
-    bool abajo = GetAsyncKeyState(VK_DOWN) & 0x8000;
 
     int dx = 0, dy = 0;
 
     if (izquierda) dx -= velocidad;
     if (derecha) dx += velocidad;
-    if (arriba) dy -= velocidad;
-    if (abajo) dy += velocidad;
 
     player.mover(dx, dy);
     player.dibujar();

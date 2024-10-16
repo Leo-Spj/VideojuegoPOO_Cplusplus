@@ -7,7 +7,7 @@ using namespace miniwin;
 EnemigoNiv1::EnemigoNiv1() : Enemigo(0, 0, 0), direccionX(1), direccionY(1) {}
 
 EnemigoNiv1::EnemigoNiv1(int ancho, int alto)
-    : Enemigo(0, 0, 2), altoFigura(42), anchoFigura(30), anchoPantalla(ancho), altoPantalla(alto), direccionX(1), direccionY(1) {
+    : Enemigo(0, 0, 4), altoFigura(42), anchoFigura(30), anchoPantalla(ancho), altoPantalla(alto), direccionX(1), direccionY(1) {
 }
 
 void EnemigoNiv1::dibujaCuadrado(int a, int b, const std::string& colorRelleno, int c, int d) {
